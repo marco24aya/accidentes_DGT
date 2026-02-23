@@ -108,3 +108,6 @@ Modelo de clasificación binaria para predecir si un accidente será **mortal o 
 - [Instituto Nacional de Estadística (INE)](https://www.ine.es) — Códigos de provincia y municipio
 
 ---
+
+# ADVERTENCIA 
+Los ficheros de datos no están incluidos en el repositorio por su tamaño. Descárgalos directamente de la fuente oficial.
