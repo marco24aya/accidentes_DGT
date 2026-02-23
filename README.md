@@ -51,7 +51,7 @@ dgt-accidentes/
 ### 1. ETL — Consolidación de datos
 - Conversión de ficheros Excel anuales (2016-2024) a CSV
 - Detección automática del separador por año
-- Homogeneización de columnas VMP (Vehículos de Movilidad Personal), añadidas por la DGT a partir de 2023
+- Homogeneización de columnas VMP (Vehículos de Movilidad Personal), añadidas por la DGT a partir de 2022
 - Generación de un **ID único global** por accidente combinando año e índice correlativo
 - Exportación del dataset consolidado con 875.013 registros y 76 columnas
 
