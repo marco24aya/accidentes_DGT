@@ -35,9 +35,8 @@ dgt-accidentes/
 │   └── accidentes_consolidado.csv  # Dataset final consolidado
 │
 ├── notebooks/
-│   ├── 01_etl_consolidacion.ipynb  # ETL: unión y limpieza de datos
-│   ├── 02_eda_visualizacion.ipynb  # Análisis exploratorio y visualizaciones
-│   └── 03_modelo_ml.ipynb          # Modelo predictivo de mortalidad
+│   ├── ETL_DGT.ipynb  # ETL: unión y limpieza de datos
+│   ├── DATA_DGT.ipynb  # Análisis exploratorio, visualizaciones y modelo predictivo de mortalidad
 │
 ├── sql/
 │   └── queries_analisis.sql        # Queries SQL de análisis
@@ -73,7 +72,7 @@ Queries avanzadas con `JOIN`, `GROUP BY`, `CASE WHEN` y funciones de agregación
 
 - Evolución temporal de accidentes y mortalidad (2016-2024)
 - Top 15 provincias por siniestralidad y tasa de mortalidad
-- Distribución de accidentes por franja horaria y día de la semana
+- Distribución de accidentes por franja horaria
 - Impacto de las condiciones meteorológicas en la mortalidad
 
 ### 4. EDA y visualización
@@ -88,7 +87,8 @@ Modelo de clasificación binaria para predecir si un accidente será **mortal o 
 
 - **Variable objetivo:** accidente mortal (al menos 1 muerto a 30 días)
 - **Features:** tipo de accidente, día de la semana, zona, tipo de vía, franja horaria, provincia y condición meteorológica
-- **Métricas:** F1-Score = 0.64 | ROC-AUC = 0.71
+- **Franjas horarias:** mañana (6-13h), tarde (13-20h), noche (20-23h), madrugada (0-5h)
+- **Métricas:** F1-Score = 0.65 | ROC-AUC = 0.70
 - **Hallazgo principal:** la zona (urbana vs interurbana) es el factor más determinante en la mortalidad, por encima de la meteorología o la provincia
 
 ---
@@ -96,15 +96,15 @@ Modelo de clasificación binaria para predecir si un accidente será **mortal o 
 ## Principales insights
 
 - **2020** registró un 30% menos de accidentes por el confinamiento COVID, pero con una **tasa de mortalidad más alta** (16.27 vs ~15 de media), probablemente por circular a mayor velocidad en carreteras vacías.
-- **Barcelona y Madrid** lideran en volumen de accidentes pero tienen tasas de mortalidad bajas (7.57 y 8.50 por 1.000). **Murcia y Alicante** destacan por tener tasas significativamente más altas (>21).
-- La **franja de madrugada** (00-05h) concentra el mayor número de muertos en proporción a los accidentes ocurridos.
+- **Barcelona y Madrid** lideran en volumen de accidentes pero tienen tasas de mortalidad bajas (7.57 y 8.50 por 1.000). **Tarragona, Murcia y Alicante** destacan por tener tasas significativamente más altas (>21).
+- La **franja de tarde** (13-20h) concentra el mayor volumen de accidentes con más de 445.000 registros. Sin embargo, la **madrugada** (00-05h) es la franja más letal en proporción, con la mayor tasa de mortalidad por accidente.
 - Los accidentes en **zona interurbana** tienen una probabilidad de mortalidad significativamente mayor que en zona urbana.
 
 ---
 
 ## Fuentes de datos
 
-- [Dirección General de Tráfico (DGT)](https://www.dgt.es/menusecundario/dgt-en-cifras/dgt-en-cifras-resultados/dgt-en-cifras-detalle/?id=00019) — Datos de accidentes de tráfico 2016-2024
+- [Dirección General de Tráfico (DGT)](https://www.dgt.es/menusecundario/dgt-en-cifras/dgt-en-cifras-resultados/) — Ficheros de microdatos de accidentes con víctimas
 - [Instituto Nacional de Estadística (INE)](https://www.ine.es) — Códigos de provincia y municipio
 
 ---
